@@ -19,8 +19,7 @@
 
         ],
         "psr-4": {
-            "App\\": "app/",
-            "FlyerAlarmDigital\\RabbitWhisper\\": "packages/FlyerAlarmDigital/RabbitWhisper/src/"
+            "FlyerAlarmDigital\\RabbitWhisper\\": "src/"
         }
     },
 
@@ -30,7 +29,7 @@
           "FlyerAlarmDigital\\RabbitWhisper\\RabbitWhisperServiceProvider"
         ],
         "aliases": {
-          "Whisper": "FlyerAlarmDigital\\RabbitWhisper\\Facade"
+          "Whisper": "FlyerAlarmDigital\\RabbitWhisper\\Facade\\Whisper"
         }
       }
     }

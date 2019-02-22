@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider;
 class RabbitWhisperServiceProvider extends ServiceProvider
 {
     /**
+     * composer require flyeralarmdigital/rabbitwhisper
      * php artisan vendor:publish --tag=rabbitwhisper
      */
     
