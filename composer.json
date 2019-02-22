@@ -5,7 +5,7 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Kenneth Hibberd",
+            "name": "<33ᆿ_3IИ\\>",
             "email": "kenneth.hibberd@flyeralarm.com"
         }
     ],
@@ -29,7 +29,7 @@
           "FlyerAlarmDigital\\RabbitWhisper\\RabbitWhisperServiceProvider"
         ],
         "aliases": {
-          "Whisper": "FlyerAlarmDigital\\RabbitWhisper\\Facade\\Whisper"
+          "Whisper": "FlyerAlarmDigital\\RabbitWhisper\\Facades\\Whisper"
         }
       }
     }

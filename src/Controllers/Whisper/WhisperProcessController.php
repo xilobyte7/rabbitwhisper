@@ -1,7 +1,10 @@
 <?php
 
 
-namespace FlyerAlarmDigital\RabbitWhisper;
+//namespace FlyerAlarmDigital\RabbitWhisper;
+namespace App\Http\Controllers\Whisper;
+
+
 
 
 class WhisperProcessController
@@ -14,10 +17,14 @@ class WhisperProcessController
      * process them as you see fit.
      */
 
-    public function __construct()
+    public function __construct($message)
     {
+        $this->message = $message;
 
+    }
 
+    public function processMessage(){
+        dd('MESSAGE IS PROCESSED');
     }
 
 }

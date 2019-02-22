@@ -1,10 +1,21 @@
 <?php
 
-namespace FlyerAlarmDigital\RabbitWhisper;
+//namespace FlyerAlarmDigital\RabbitWhisper;
+namespace App\Http\Controllers\Whisper;
+
 use App\Http\Controllers\Controller;
 use Request;
 use Log;
-use FlyerAlarmDigital\RabbitWhisper\CommoLog;
+//use FlyerAlarmDigital\RabbitWhisper\CommoLog;
+use App\CommoLog;
+
+/**
+ * Class SendController
+ * @package App\Http\Controllers\Whisper
+ *
+ * Sends a brand new message with a new message identifier
+ */
+
 
 class SendController extends Controller
 {
@@ -66,12 +77,9 @@ class SendController extends Controller
      * @param $order_token
      * @return false|string
      */
-    private function createMessage($message_identifier = NULL){
+    private function createMessage(){
 
-        if($message_identifier == NULL){
-
-            $this->message_identifier = bin2hex(openssl_random_pseudo_bytes(12, $cstrong));
-        }
+        $this->message_identifier = bin2hex(openssl_random_pseudo_bytes(12, $cstrong));
         $mid = ['message_identifier' => $this->message_identifier, 'sender' => env('APPID'), 'receiver' => $this->receiver, 'message' => $this->message];
         $this->message = json_encode($mid);
         return true;

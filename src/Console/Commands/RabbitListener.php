@@ -3,8 +3,9 @@
 namespace FlyerAlarmDigital\RabbitWhisper;
 
 use Illuminate\Console\Command;
-use App\Http\Controllers\CommoController;
-use FlyerAlarmDigital\RabbitWhisper\Controllers\SendController;
+use App\Http\Controllers\WhisperProcessController;
+use FlyerAlarmDigital\RabbitWhisper\Controllers\AckController;
+
 
 class RabbitListener extends Command
 {
@@ -39,15 +40,20 @@ class RabbitListener extends Command
      */
     public function handle()
     {
-        \Amqp::consume(env('APPID'), function ($message, $resolver) {
+        $appid = trim(env('APPID'));
+
+        \Amqp::consume($appid, function ($message, $resolver) {
             $thisMessage = json_decode($message->body, true);
             $resolver->acknowledge($message);
 
-            $ack = new CommoController('', $thisMessage, $type = 'RECEIVE');
-            $ack->receiveMessage();
+            $ack = new AckController($thisMessage);
+            $ack->sendMessage();
+
+            $processMe = new WhisperProcessController($thisMessage);
+            $processMe->processMessage();
 
         }, [
-            'exchange' => env('RABBIT_EXCHANGE'),
+            'exchange' => 'amq.direct',
             'exchange_type' => 'direct',
             'queue_force_declare' => true,
             'queue_exclusive' => false,
