@@ -1,0 +1,37 @@
+{
+    "name": "flyeralarmdigital/rabbitwhisper",
+    "description": "Provides RabbitMQ Authority Level Communications with \"You this is Me\" responses",
+    "type": "metapackage",
+    "license": "to kill",
+    "authors": [
+        {
+            "name": "Kenneth Hibberd",
+            "email": "kenneth.hibberd@flyeralarm.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "bschmitt/laravel-amqp": "2.*"
+    },
+
+    "autoload": {
+        "classmap": [
+
+        ],
+        "psr-4": {
+            "App\\": "app/",
+            "FlyerAlarmDigital\\RabbitWhisper\\": "packages/FlyerAlarmDigital/RabbitWhisper/src/"
+        }
+    },
+
+    "extra": {
+      "laravel": {
+        "providers": [
+          "FlyerAlarmDigital\\RabbitWhisper\\RabbitWhisperServiceProvider"
+        ],
+        "aliases": {
+          "Whisper": "FlyerAlarmDigital\\RabbitWhisper\\Facade"
+        }
+      }
+    }
+}
