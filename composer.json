@@ -2,7 +2,7 @@
     "name": "flyeralarmdigital/rabbitwhisper",
     "description": "Provides RabbitMQ Authority Level Communications with \"You this is Me\" responses",
     "type": "metapackage",
-    "license": "to kill",
+    "license": "MIT",
     "authors": [
         {
             "name": "Kenneth Hibberd",
