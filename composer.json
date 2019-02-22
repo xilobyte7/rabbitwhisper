@@ -11,6 +11,9 @@
     ],
     "minimum-stability": "dev",
     "require": {
+        "php": ">=7.0",
+        "php-amqplib/php-amqplib": "2.*",
+        "illuminate/support": ">=v5.5.28",
         "bschmitt/laravel-amqp": "2.*"
     },
 
